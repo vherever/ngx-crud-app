@@ -2,23 +2,27 @@
   "posts": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "title": "Post 1 title",
+      "body": "Body content",
+      "author": "Author 1"
     },
     {
-      "title": "HHHHaaa",
-      "body": "ffffa as s dasd",
-      "id": 2
+      "id": 2,
+      "title": "Post 2 title",
+      "body": "Body content",
+      "author": "Author 2"
     }
   ],
   "comments": [
     {
       "id": 1,
-      "body": "some comment",
+      "body": "Comment 1",
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "body": "Comment 2",
       "postId": 1
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

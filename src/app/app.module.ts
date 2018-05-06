@@ -9,6 +9,9 @@ import { CommentComponent } from './components/comments/comment/comment.componen
 import { PostComponent } from './components/posts/post/post.component';
 import { AddPostComponent } from './components/posts/add-post/add-post.component';
 import { AddCommentComponent } from './components/comments/add-comment/add-comment.component';
+import {AjaxService} from './services/ajax.service';
+import {DataManagerService} from './services/data-manager.service';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -22,9 +25,13 @@ import { AddCommentComponent } from './components/comments/add-comment/add-comme
     AddCommentComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AjaxService,
+    DataManagerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

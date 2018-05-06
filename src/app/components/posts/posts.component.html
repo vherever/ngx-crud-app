@@ -1,3 +1,10 @@
 <h2>Posts</h2>
-<app-post></app-post>
+<ng-container *ngFor="let post of posts">
+  <ul>
+    <li>
+      {{ post.title }}
+      <app-post></app-post>
+    </li>
+  </ul>
+</ng-container>
 <app-add-post></app-add-post>
