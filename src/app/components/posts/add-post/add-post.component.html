@@ -1,2 +1,35 @@
-<textarea name="" id="" cols="30" rows="10"></textarea><br>
-<button>Add post</button>
+<form [formGroup]="postGroup">
+<table width="400px">
+  <tbody>
+  <tr>
+    <td width="30%">
+      <label for="author">Author:</label>
+    </td>
+    <td width="70%">
+      <input type="text" id="author" formControlName="author">
+      <div *ngIf="author.invalid && author.touched">This field is required.</div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <label for="title">Title:</label>
+    </td>
+    <td>
+      <input type="text" id="title" formControlName="title">
+      <div *ngIf="title.invalid && title.touched">This field is required.</div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <label for="description">Content:</label>
+    </td>
+    <td>
+      <textarea id="description" formControlName="body"></textarea>
+      <div *ngIf="body.invalid && body.touched">This field is required.</div>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<br>
+<button (click)="addPostClick($event)" [disabled] = "!postGroup.valid">Add post</button>
+</form>

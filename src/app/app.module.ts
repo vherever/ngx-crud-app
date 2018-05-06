@@ -12,6 +12,7 @@ import { AddCommentComponent } from './components/comments/add-comment/add-comme
 import {AjaxService} from './services/ajax.service';
 import {DataManagerService} from './services/data-manager.service';
 import {HttpClientModule} from '@angular/common/http';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -26,7 +27,9 @@ import {HttpClientModule} from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     AjaxService,

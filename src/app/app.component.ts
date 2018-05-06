@@ -13,8 +13,6 @@ export class AppComponent implements OnInit {
   public posts: any[];
 
   ngOnInit() {
-    console.log('main init');
-
     this.dmService.getPosts().subscribe((res: any) => {
       this.posts = res;
     });
