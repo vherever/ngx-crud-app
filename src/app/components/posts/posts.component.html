@@ -2,8 +2,12 @@
 <ng-container *ngFor="let post of posts">
   <ul>
     <li>
-      {{ post.title }}
-      <app-post></app-post>
+      <span (click)="onPostClick(post)" style="cursor: pointer">
+        {{ post.title }}
+        <span *ngIf="!post._collapsed">(+)</span>
+        <span *ngIf="post._collapsed">(-)</span>
+      </span>
+      <app-post *ngIf="post._collapsed"></app-post>
     </li>
   </ul>
 </ng-container>
