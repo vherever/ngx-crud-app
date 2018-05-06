@@ -1,5 +1,5 @@
 <h2>Posts</h2>
-<ng-container *ngFor="let post of posts">
+<ng-container *ngFor="let post of dmService.posts_">
   <ul>
     <li>
       <span (click)="onPostClick(post)" style="cursor: pointer">
@@ -7,6 +7,9 @@
         <span *ngIf="!post._collapsed">(+)</span>
         <span *ngIf="post._collapsed">(-)</span>
       </span>
+      <span *ngIf="post._collapsed"
+            (click)="onPostRemove(post)"
+            style="color: red; cursor: pointer">(x)</span>
       <app-post *ngIf="post._collapsed"></app-post>
     </li>
   </ul>

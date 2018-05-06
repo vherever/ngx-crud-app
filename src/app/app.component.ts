@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.dmService.loadPosts();
     this.dmService.posts.subscribe((items) => {
+      this.dmService.posts_ = items;
       this.posts = items;
     });
   }

@@ -13,6 +13,7 @@ export class DataManagerService {
 
   // We will subscribe to items in our component
   public posts: Observable<Array<Post>>;
+  public posts_: Post[];
 
   constructor(private ajaxService: AjaxService) {
     this.posts = this._posts.asObservable();
@@ -25,7 +26,7 @@ export class DataManagerService {
       null,
       () => this.completeRequest()
     );
-    this.requests.next('http://localhost:3000/posts');
+    this.requests.next('http://localhost:3000/posts/');
   }
 
   public addPost(data: any) {
@@ -35,7 +36,17 @@ export class DataManagerService {
       null,
       () => this._posts.next(this.results)
     );
-    this.requests.next('http://localhost:3000/posts');
+    this.requests.next('http://localhost:3000/posts/');
+  }
+
+  public deletePost(id: number) {
+    this.requests = new Subject();
+    this.requests.asObservable().subscribe(
+      (url: string) => this.deletePostRequest(url, id),
+      null,
+      () => this._posts.next(this.results)
+    );
+    this.requests.next('http://localhost:3000/posts/');
   }
 
   // GET
@@ -56,6 +67,15 @@ export class DataManagerService {
       });
   }
 
+  // DELETE
+  private deletePostRequest(url: string, id: number) {
+    this.ajaxService.delete(url, id)
+      .subscribe(() => {
+        this.results = this.results.filter(i => i.id !== id);
+        this.requests.complete();
+      });
+  }
+
   // Save all posts in temporary array
   private savePostResults(data: Post[]): void {
     this.results = data.map(item => {
@@ -63,7 +83,8 @@ export class DataManagerService {
         item.author,
         item.title,
         item.body,
-        false
+        false,
+        item.id
       );
     });
   }
@@ -75,7 +96,8 @@ export class DataManagerService {
         data.author,
         data.title,
         data.body,
-        false
+        false,
+        data.id
       )
     );
   }

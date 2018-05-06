@@ -15,4 +15,8 @@ export class AjaxService {
     return this.http.post(url, data);
   }
 
+  delete(url: string, id: number): Observable<any> {
+    return this.http.delete(url + id);
+  }
+
 }
