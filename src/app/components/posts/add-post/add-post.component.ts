@@ -19,6 +19,7 @@ export class AddPostComponent implements OnInit {
     if (this.postGroup.valid) {
       this.post = this.postGroup.value;
       this.dmService.addPost(this.post);
+      this.dmService.posts.subscribe();
     }
   }
 
