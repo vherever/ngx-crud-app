@@ -15,11 +15,14 @@ export class AddPostComponent implements OnInit {
   constructor(private dmService: DataManagerService) {
   }
 
-  addPostClick(event: Event): void {
+  addPostClick(): void {
     if (this.postGroup.valid) {
       this.post = this.postGroup.value;
       this.dmService.addPost(this.post);
       this.dmService.posts.subscribe();
+
+      // Clear the form
+      this.formGroupControlsInit();
     }
   }
 
@@ -27,12 +30,16 @@ export class AddPostComponent implements OnInit {
   get title() { return this.postGroup.get('title'); }
   get body() { return this.postGroup.get('body'); }
 
-  ngOnInit() {
+  private formGroupControlsInit() {
     this.postGroup = new FormGroup({
       author: new FormControl('', Validators.required),
       title: new FormControl('', Validators.required),
       body: new FormControl('', Validators.required)
     });
+  }
+
+  ngOnInit() {
+    this.formGroupControlsInit();
   }
 
 }

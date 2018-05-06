@@ -1,4 +1,11 @@
 {
-  "posts": [],
+  "posts": [
+    {
+      "author": "dd",
+      "title": "ff",
+      "body": "aa",
+      "id": 1
+    }
+  ],
   "comments": []
 }
