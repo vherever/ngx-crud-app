@@ -14,6 +14,8 @@ import {DataManagerService} from './services/posts/data-manager.service';
 import {DataManagerCommentsService} from './services/comments/data-manager.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import {PopupService} from './services/popup.service';
+import { EditPostComponent } from './components/posts/post/edit/edit.component';
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import {ReactiveFormsModule, FormsModule} from '@angular/forms';
     CommentComponent,
     PostComponent,
     AddPostComponent,
-    AddCommentComponent
+    AddCommentComponent,
+    EditPostComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import {ReactiveFormsModule, FormsModule} from '@angular/forms';
   providers: [
     AjaxService,
     DataManagerService,
-    DataManagerCommentsService
+    DataManagerCommentsService,
+    PopupService
   ],
   bootstrap: [AppComponent]
 })
