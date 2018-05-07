@@ -49,6 +49,17 @@ export class DataManagerService {
     this.requests.next('http://localhost:3000/posts/');
   }
 
+  public updatePost(post: Post) {
+    this.requests = new Subject();
+    this.requests.asObservable().subscribe(
+      (url: string) => this.updatePostRequest(url, post),
+      null,
+      () => this._posts.next(this.results)
+    );
+    this.requests.next('http://localhost:3000/posts/' + post.id);
+  }
+
+
   // GET
   private sendGetRequest(url: string): void {
     this.ajaxService.get(url)
@@ -72,6 +83,14 @@ export class DataManagerService {
     this.ajaxService.delete(url, id)
       .subscribe(() => {
         this.results = this.results.filter(i => i.id !== id);
+        this.requests.complete();
+      });
+  }
+
+  // UPDATE
+  private updatePostRequest(url: string, post: Post) {
+    this.ajaxService.put(url, post)
+      .subscribe(() => {
         this.requests.complete();
       });
   }

@@ -19,4 +19,8 @@ export class AjaxService {
     return this.http.delete(url + id);
   }
 
+  put(url: string, data: any): Observable<any> {
+    return this.http.put(url, data);
+  }
+
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {BasePopup, PopupService} from '../../../../services/popup.service';
+import {Post} from '../../../../models/post';
 
 export class EditPostPopup extends BasePopup {
   data: any;
@@ -22,6 +23,8 @@ export class EditPostComponent implements OnInit {
   overlayHeight: string;
   window: any;
 
+  public post: Post;
+
   constructor(private requestPopupService: PopupService) {
     this.window = window;
     this.requestPopupService.popup.subscribe(popup => this.checkPopup(popup));
@@ -36,6 +39,7 @@ export class EditPostComponent implements OnInit {
   private showPopup(popup: EditPostPopup) {
     if (popup.data) {
       this.popup = popup;
+      this.post = popup.data;
       this.setOverlay();
       this.centerPopup();
     } else {

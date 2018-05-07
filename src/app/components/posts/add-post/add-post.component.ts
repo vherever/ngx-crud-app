@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Component, Input, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Post} from '../../../models/post';
 import {DataManagerService} from '../../../services/posts/data-manager.service';
 
@@ -9,10 +9,15 @@ import {DataManagerService} from '../../../services/posts/data-manager.service';
   styleUrls: ['./add-post.component.css']
 })
 export class AddPostComponent implements OnInit {
+  @Input() current_post: Post;
+
   public postGroup: FormGroup;
+  public model: Post;
+
   private post: Post;
 
-  constructor(private dmService: DataManagerService) {
+  constructor(private dmService: DataManagerService, builder: FormBuilder) {
+
   }
 
   public addPostClick(): void {
@@ -38,8 +43,22 @@ export class AddPostComponent implements OnInit {
     });
   }
 
+  public onUpdatePost(post: Post) {
+    console.log('model', this.model);
+    console.log('this.postGroup', this.postGroup);
+    this.dmService.updatePost(post);
+  }
+
   ngOnInit() {
     this.formGroupControlsInit();
+
+    this.model = {
+      author: this.current_post ? this.current_post.author : '',
+      title: this.current_post ? this.current_post.title : '',
+      body: this.current_post ? this.current_post.body : '',
+      _collapsed: this.current_post ? this.current_post._collapsed : false,
+      id: this.current_post ? this.current_post.id : undefined
+    };
   }
 
 }

@@ -1,15 +1,17 @@
 {
   "posts": [
     {
-      "author": "hh",
-      "title": "jj",
+      "author": "h2211",
+      "title": "12112",
       "body": "ghg",
+      "_collapsed": true,
       "id": 1
     },
     {
       "author": "hhh",
-      "title": "jjj",
+      "title": "jjj1",
       "body": "kk",
+      "_collapsed": true,
       "id": 2
     },
     {
@@ -23,6 +25,25 @@
       "title": "g",
       "body": "h",
       "id": 4
+    },
+    {
+      "author": "f",
+      "title": "a",
+      "body": "s",
+      "id": 5
+    },
+    {
+      "author": "g",
+      "title": "h",
+      "body": "j",
+      "_collapsed": true,
+      "id": 6
+    },
+    {
+      "author": "f",
+      "title": "g",
+      "body": "h",
+      "id": 7
     }
   ],
   "comments": [
