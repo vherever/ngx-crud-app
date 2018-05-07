@@ -10,7 +10,8 @@ import { PostComponent } from './components/posts/post/post.component';
 import { AddPostComponent } from './components/posts/add-post/add-post.component';
 import { AddCommentComponent } from './components/comments/add-comment/add-comment.component';
 import {AjaxService} from './services/ajax.service';
-import {DataManagerService} from './services/data-manager.service';
+import {DataManagerService} from './services/posts/data-manager.service';
+import {DataManagerCommentsService} from './services/comments/data-manager.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 
@@ -33,7 +34,8 @@ import {ReactiveFormsModule, FormsModule} from '@angular/forms';
   ],
   providers: [
     AjaxService,
-    DataManagerService
+    DataManagerService,
+    DataManagerCommentsService
   ],
   bootstrap: [AppComponent]
 })

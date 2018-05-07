@@ -1,2 +1,26 @@
-<textarea name="" id="" cols="30" rows="10"></textarea><br>
-<button>Add comment</button>
+<form [formGroup]="commentGroup">
+  <table width="400px">
+    <tbody>
+    <tr>
+      <td width="30%">
+        <label for="name">Name:</label>
+      </td>
+      <td width="70%">
+        <input type="text" id="name" formControlName="name">
+        <div *ngIf="name_control.invalid && name_control.touched">This field is required.</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="comment">Comment:</label>
+      </td>
+      <td>
+        <textarea id="comment" formControlName="comment"></textarea>
+        <div *ngIf="comment_control.invalid && comment_control.touched">This field is required.</div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <button (click)="addCommentClick()" [disabled] = "!commentGroup.valid">Add comment</button>
+</form>

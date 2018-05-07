@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {AjaxService} from './ajax.service';
+import {AjaxService} from '../ajax.service';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {Post} from '../models/post';
+import {Post} from '../../models/post';
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
 

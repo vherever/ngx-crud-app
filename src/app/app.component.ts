@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {DataManagerService} from './services/data-manager.service';
+import {DataManagerService} from './services/posts/data-manager.service';
 import {Post} from './models/post';
 
 @Component({
@@ -8,8 +8,7 @@ import {Post} from './models/post';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private dmService: DataManagerService) {
-  }
+  constructor(private dmService: DataManagerService) {}
 
   public posts: Post[];
 

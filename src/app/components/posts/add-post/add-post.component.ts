@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Post} from '../../../models/post';
-import {DataManagerService} from '../../../services/data-manager.service';
+import {DataManagerService} from '../../../services/posts/data-manager.service';
 
 @Component({
   selector: 'app-add-post',
@@ -15,7 +15,7 @@ export class AddPostComponent implements OnInit {
   constructor(private dmService: DataManagerService) {
   }
 
-  addPostClick(): void {
+  public addPostClick(): void {
     if (this.postGroup.valid) {
       this.post = this.postGroup.value;
       this.dmService.addPost(this.post);

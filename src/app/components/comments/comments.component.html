@@ -1,3 +1,7 @@
 <h4>Comments</h4>
 <app-comment></app-comment>
+<ng-container *ngFor="let comment of comments">
+  <div>{{ comment.author }}</div>
+</ng-container>
 <app-add-comment></app-add-comment>
+{{ comments | json }}
