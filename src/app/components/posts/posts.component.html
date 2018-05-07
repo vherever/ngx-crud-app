@@ -10,7 +10,7 @@
       <span *ngIf="post._collapsed"
             (click)="onPostRemove(post)"
             style="color: red; cursor: pointer">(x)</span>
-      <app-post *ngIf="post._collapsed"></app-post>
+      <app-post *ngIf="post._collapsed" [comments]="comments"></app-post>
     </li>
   </ul>
 </ng-container>

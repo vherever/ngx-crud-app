@@ -1,4 +1,52 @@
 {
-  "posts": [],
-  "comments": []
+  "posts": [
+    {
+      "author": "hh",
+      "title": "jj",
+      "body": "ghg",
+      "id": 1
+    },
+    {
+      "author": "hhh",
+      "title": "jjj",
+      "body": "kk",
+      "id": 2
+    },
+    {
+      "author": "12",
+      "title": "34",
+      "body": "56",
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "author": "dd",
+      "email": "dd@aa.com",
+      "body": "fff",
+      "postId": "1",
+      "id": 1
+    },
+    {
+      "author": "dd",
+      "email": "dd@aa.com",
+      "body": "fff",
+      "postId": "1",
+      "id": 2
+    },
+    {
+      "author": "dd",
+      "email": "dd@aa.com",
+      "body": "fff",
+      "postId": "1",
+      "id": 3
+    },
+    {
+      "author": "dd",
+      "email": "dd@aa.com",
+      "body": "fff",
+      "postId": "3",
+      "id": 4
+    }
+  ]
 }

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataManagerService} from './services/posts/data-manager.service';
 import {Post} from './models/post';
+import {DataManagerCommentsService} from './services/comments/data-manager.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import {Post} from './models/post';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private dmService: DataManagerService) {}
+  constructor(private dmService: DataManagerService, private dmCommentsService: DataManagerCommentsService) {}
 
   public posts: Post[];
 
@@ -17,6 +18,11 @@ export class AppComponent implements OnInit {
     this.dmService.posts.subscribe((items) => {
       this.dmService.posts_ = items;
       this.posts = items;
+    });
+
+    this.dmCommentsService.loadComments();
+    this.dmCommentsService.comments.subscribe((items) => {
+      this.dmCommentsService.comments_ = items;
     });
   }
 }

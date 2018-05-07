@@ -13,7 +13,7 @@ export class DataManagerCommentsService {
 
   // We will subscribe to items in our component
   public comments: Observable<Array<Comment>>;
-  public comments_: Comment[];
+  public comments_: Comment[]; // We use it as a storage for comments
 
   constructor(private ajaxService: AjaxService) {
     this.comments = this._comments.asObservable();
@@ -53,6 +53,12 @@ export class DataManagerCommentsService {
 
   private completeRequest(): void {
     this._comments.next(this.results);
+  }
+
+  public findCommentsByPostId(postId: number): Comment[] {
+    return this.comments_.filter((i) => {
+      return postId === parseInt(i.postId, 10);
+    });
   }
 
 }

@@ -4,7 +4,7 @@ export class Comment {
     public email: string,
     public body: string,
     public id: number,
-    public postId: number,
+    public postId: string,
   ) {
     this.author = author;
     this.email = email;
