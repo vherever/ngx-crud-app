@@ -49,6 +49,16 @@ export class DataManagerCommentsService {
     this.requests.next('http://localhost:3000/comments/');
   }
 
+  public updateComment(comment: Comment) {
+    this.requests = new Subject();
+    this.requests.asObservable().subscribe(
+      (url: string) => this.updateCommentRequest(url, comment),
+      null,
+      () => this._comments.next(this.results)
+    );
+    this.requests.next('http://localhost:3000/comments/' + comment.id);
+  }
+
   // GET
   private sendGetRequest(url: string): void {
     this.ajaxService.get(url)
@@ -72,6 +82,18 @@ export class DataManagerCommentsService {
     this.ajaxService.delete(url, id)
       .subscribe(() => {
         this.results = this.results.filter(i => i.id !== id);
+        this.requests.complete();
+      });
+  }
+
+  // UPDATE
+  private updateCommentRequest(url: string, comment: Comment) {
+    this.ajaxService.put(url, comment)
+      .subscribe((res) => {
+        // Here we update visual representation only
+        this.results = this.results.filter(i => i.id !== comment.id);
+        this.results.push(res);
+        this.results.sort((a, b) => a.id - b.id);
         this.requests.complete();
       });
   }

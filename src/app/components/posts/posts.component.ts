@@ -31,8 +31,6 @@ export class PostsComponent implements OnInit {
 
   public onPostRemove(post: Post): void {
     this.dmService.deletePost(post.id);
-    this.dmService.posts
-      .subscribe();
   }
 
   public onEditClick(post: Post): void {

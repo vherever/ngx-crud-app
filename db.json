@@ -1,101 +1,47 @@
 {
   "posts": [
     {
-      "author": "hhh",
-      "title": "hhh44412",
-      "body": "kk",
-      "_collapsed": true,
-      "id": 2
-    },
-    {
-      "author": "12",
-      "title": "gg1",
-      "body": "56",
-      "_collapsed": true,
-      "id": 3
-    },
-    {
-      "author": "f",
-      "title": "g111",
-      "body": "h",
-      "_collapsed": true,
-      "id": 7
-    },
-    {
-      "author": "f",
-      "title": "gg",
-      "body": "h",
-      "id": 8
-    },
-    {
-      "author": "12",
-      "title": "5",
-      "body": "3",
-      "_collapsed": true,
-      "id": 9
-    },
-    {
-      "author": "f",
-      "title": "f",
-      "body": "f",
-      "id": 10
-    },
-    {
       "author": "a",
       "title": "a",
       "body": "a",
-      "id": 11
+      "id": 1
+    },
+    {
+      "author": "bb",
+      "title": "bb",
+      "body": "bb",
+      "_collapsed": true,
+      "id": 2
     }
   ],
   "comments": [
     {
-      "author": "dd",
-      "email": "dd@aa.com",
-      "body": "fff",
-      "postId": "3",
-      "id": 4
-    },
-    {
-      "author": "12",
-      "email": "1",
-      "body": "1",
-      "postId": 9,
-      "id": 9
-    },
-    {
-      "author": "ss",
-      "email": "ss",
-      "body": "dd",
-      "postId": 7,
-      "id": 13
-    },
-    {
-      "author": "f",
-      "email": "g",
-      "body": "g",
-      "postId": 7,
-      "id": 14
-    },
-    {
-      "author": "x",
-      "email": "x",
-      "body": "x",
-      "postId": 7,
-      "id": 15
-    },
-    {
-      "author": "aa",
-      "email": "aa",
-      "body": "aa",
-      "postId": 2,
-      "id": 16
-    },
-    {
-      "author": "d",
+      "author": "s",
       "email": "d",
-      "body": "d",
-      "postId": 11,
-      "id": 17
+      "body": "f",
+      "postId": 1,
+      "id": 1
+    },
+    {
+      "author": "g",
+      "email": "h",
+      "body": "j",
+      "postId": 1,
+      "id": 2
+    },
+    {
+      "author": "zz",
+      "email": "x",
+      "body": "c",
+      "id": 3,
+      "postId": 2
+    },
+    {
+      "author": "vv",
+      "email": "c",
+      "body": "x",
+      "id": 4,
+      "postId": 2
     }
   ]
 }

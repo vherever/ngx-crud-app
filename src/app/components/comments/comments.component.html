@@ -3,7 +3,8 @@
   <li *ngFor="let comment of comments">
     <span>{{ comment.author }}</span> <span>{{ comment.email }}</span><br>
     <span>{{ comment.body }}</span>
-    <span style="color: red" (click)="onRemoveComment(comment)">(x)</span>
+    <span style="color: red" (click)="onCommentRemove(comment)">(x)</span>
+    <span (click)="onEditClick(comment)">(e)</span>
   </li>
 </ul>
 <app-add-comment [postId]="postId" (notifyCommentsUpdate)="onNotifyCommentsUpdate($event)"></app-add-comment>

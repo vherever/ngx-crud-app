@@ -1,17 +1,25 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {DataManagerCommentsService} from '../../../services/comments/data-manager.service';
+import {Comment} from '../../../models/comment';
+import {ISubscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-add-comment',
   templateUrl: './add-comment.component.html',
   styleUrls: ['./add-comment.component.css']
 })
-export class AddCommentComponent implements OnInit {
-  public commentGroup: FormGroup;
+export class AddCommentComponent implements OnInit, OnDestroy {
   @Input() postId: string;
+  @Input() current_comment: Comment;
   @Output() notifyCommentsUpdate: EventEmitter<number> = new EventEmitter<number>();
+  @Output() notifyClose: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  public commentGroup: FormGroup;
+  public model: Comment;
+
   private comment: any;
+  private subscription: ISubscription;
 
   constructor(private dmService: DataManagerCommentsService) { }
 
@@ -20,9 +28,7 @@ export class AddCommentComponent implements OnInit {
       this.comment = this.commentGroup.value;
       Object.assign(this.comment, {postId: this.postId});
       this.dmService.addComment(this.comment);
-      this.dmService.comments.subscribe(() => {
-        this.notifyCommentsUpdate.emit(parseInt(this.postId, 10));
-      });
+
 
       // Clear the form
       this.formGroupControlsInit();
@@ -41,8 +47,29 @@ export class AddCommentComponent implements OnInit {
     });
   }
 
+  public onUpdateComment(comment: Comment) {
+    this.dmService.updateComment(comment);
+    this.notifyCommentsUpdate.emit(parseInt(this.postId, 10));
+    this.notifyClose.emit(true);
+  }
+
   ngOnInit() {
+    this.subscription = this.dmService.comments.subscribe(() => {
+      this.notifyCommentsUpdate.emit(parseInt(this.postId, 10));
+    });
     this.formGroupControlsInit();
+
+    this.model = {
+      author: this.current_comment ? this.current_comment.author : '',
+      email: this.current_comment ? this.current_comment.email : '',
+      body: this.current_comment ? this.current_comment.body : '',
+      id: this.current_comment ? this.current_comment.id : undefined,
+      postId: this.current_comment ? this.current_comment.postId : undefined
+    };
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }

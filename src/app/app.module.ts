@@ -16,6 +16,7 @@ import {PopupService} from './services/popup.service';
 import { EditPostComponent } from './components/posts/edit-post/edit.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FilterComponent } from './components/filter/filter.component';
+import {EditCommentComponent} from './components/comments/edit-comment/edit.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { FilterComponent } from './components/filter/filter.component';
     AddCommentComponent,
     EditPostComponent,
     FilterPipe,
-    FilterComponent
+    FilterComponent,
+    EditCommentComponent
   ],
   imports: [
     BrowserModule,

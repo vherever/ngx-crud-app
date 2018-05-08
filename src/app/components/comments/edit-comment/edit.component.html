@@ -1,7 +1,7 @@
 <div class="overlay" *ngIf="popup" [style.width]="overlayWidth" [style.height]="overlayHeight"></div>
 <div class="popup" *ngIf="popup" [style.left]="styleLeft" [style.top]="styleTop">
-  <h5>Edit Post</h5>
-  <app-add-post [current_post]="post" (notifyClose)="onNotifyClose($event)"></app-add-post>
+  <h5>Edit Comment</h5>
+  <app-add-comment [current_comment]="comment" (notifyClose)="onNotifyClose($event)"></app-add-comment>
   <button (click)="onCancelClick()">Close</button>
 </div>
 <style>

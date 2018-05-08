@@ -6,7 +6,7 @@
         <label for="author">Author:</label>
       </td>
       <td width="70%">
-        <input type="text" id="author" formControlName="author">
+        <input type="text" id="author" formControlName="author" [(ngModel)]="model.author">
         <div *ngIf="author.invalid && author.touched">This field is required.</div>
       </td>
     </tr>
@@ -15,7 +15,7 @@
         <label for="email">Email:</label>
       </td>
       <td>
-        <input type="text" id="email" formControlName="email">
+        <input type="text" id="email" formControlName="email" [(ngModel)]="model.email">
         <div *ngIf="email.invalid && email.touched">This field is required.</div>
       </td>
     </tr>
@@ -24,12 +24,17 @@
         <label for="body">Comment:</label>
       </td>
       <td>
-        <textarea id="body" formControlName="body"></textarea>
+        <textarea id="body" formControlName="body" [(ngModel)]="model.body"></textarea>
         <div *ngIf="body.invalid && body.touched">This field is required.</div>
       </td>
     </tr>
     </tbody>
   </table>
   <br>
-  <button (click)="addCommentClick()" [disabled] = "!commentGroup.valid">Add comment</button>
+  <button *ngIf="!current_comment"
+          (click)="addCommentClick()"
+          [disabled] = "!commentGroup.valid">Add comment</button>
+  <button *ngIf="current_comment"
+          [disabled] = "!commentGroup.valid"
+          (click)="onUpdateComment(model)">Update comment</button>
 </form>
