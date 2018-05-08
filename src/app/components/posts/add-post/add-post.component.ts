@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Post} from '../../../models/post';
 import {DataManagerService} from '../../../services/posts/data-manager.service';
 
@@ -10,15 +10,14 @@ import {DataManagerService} from '../../../services/posts/data-manager.service';
 })
 export class AddPostComponent implements OnInit {
   @Input() current_post: Post;
+  @Output() notifyClose: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  private post: Post;
 
   public postGroup: FormGroup;
   public model: Post;
 
-  private post: Post;
-
-  constructor(private dmService: DataManagerService, builder: FormBuilder) {
-
-  }
+  constructor(private dmService: DataManagerService) {}
 
   public addPostClick(): void {
     if (this.postGroup.valid) {
@@ -44,9 +43,8 @@ export class AddPostComponent implements OnInit {
   }
 
   public onUpdatePost(post: Post) {
-    console.log('model', this.model);
-    console.log('this.postGroup', this.postGroup);
     this.dmService.updatePost(post);
+    this.notifyClose.emit(true);
   }
 
   ngOnInit() {

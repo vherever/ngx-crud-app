@@ -61,6 +61,14 @@ export class EditPostComponent implements OnInit {
     this.popup = undefined;
   }
 
+  public onNotifyClose(value: boolean) {
+    if (value) {
+      setTimeout(() => {
+        this.onCancelClick();
+      }, 10);
+    }
+  }
+
   ngOnInit() {
   }
 

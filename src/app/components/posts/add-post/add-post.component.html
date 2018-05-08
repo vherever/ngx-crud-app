@@ -36,5 +36,6 @@
         [disabled] = "!postGroup.valid">Add post</button>
 
 <button *ngIf="current_post"
+        [disabled] = "!postGroup.valid"
         (click)="onUpdatePost(model)">Update post</button>
 </form>

@@ -90,7 +90,11 @@ export class DataManagerService {
   // UPDATE
   private updatePostRequest(url: string, post: Post) {
     this.ajaxService.put(url, post)
-      .subscribe(() => {
+      .subscribe((res) => {
+        // Here we update visual representation only
+        this.results = this.results.filter(i => i.id !== post.id);
+        this.results.push(res);
+        this.results.sort((a, b) => a.id - b.id);
         this.requests.complete();
       });
   }
