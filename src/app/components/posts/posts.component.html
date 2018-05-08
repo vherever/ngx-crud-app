@@ -15,7 +15,7 @@
           style="cursor: pointer">(e)</span>
 
     <ng-container *ngIf="post._collapsed">
-      <app-comments [comments]="comments"></app-comments>
+      <app-comments [comments]="comments" [postId]="post.id"></app-comments>
     </ng-container>
   </li>
 </ul>

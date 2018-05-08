@@ -5,4 +5,4 @@
     <span>{{ comment.body }}</span>
   </li>
 </ul>
-<app-add-comment></app-add-comment>
+<app-add-comment [postId]="postId" (notifyCommentsUpdate)="onNotifyCommentsUpdate($event)"></app-add-comment>

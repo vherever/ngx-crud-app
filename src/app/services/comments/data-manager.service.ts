@@ -29,6 +29,16 @@ export class DataManagerCommentsService {
     this.requests.next('http://localhost:3000/comments/');
   }
 
+  public addComment(data: any) {
+    this.requests = new Subject();
+    this.requests.asObservable().subscribe(
+      (url: string) => this.sendCommentRequest(url, data),
+      null,
+      () => this._comments.next(this.results)
+    );
+    this.requests.next('http://localhost:3000/comments/');
+  }
+
   // GET
   private sendGetRequest(url: string): void {
     this.ajaxService.get(url)
@@ -38,7 +48,16 @@ export class DataManagerCommentsService {
       });
   }
 
-  // Save all posts in temporary array
+  // POST
+  private sendCommentRequest(url: string, data: any): void {
+    this.ajaxService.post(url, data)
+      .subscribe((res: any) => {
+        this.saveCommentResult(res);
+        this.requests.complete();
+      });
+  }
+
+  // Save all comments in temporary array
   private saveCommentResults(data: Comment[]): void {
     this.results = data.map(item => {
       return new Comment(
@@ -49,6 +68,19 @@ export class DataManagerCommentsService {
         item.postId
       );
     });
+  }
+
+  // Add one comment to temporary array
+  private saveCommentResult(item: Comment): void {
+    this.results.push(
+      new Comment(
+        item.author,
+        item.email,
+        item.body,
+        item.id,
+        item.postId
+      )
+    );
   }
 
   private completeRequest(): void {

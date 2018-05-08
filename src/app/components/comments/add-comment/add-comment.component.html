@@ -3,20 +3,29 @@
     <tbody>
     <tr>
       <td width="30%">
-        <label for="name">Name:</label>
+        <label for="author">Author:</label>
       </td>
       <td width="70%">
-        <input type="text" id="name" formControlName="name">
-        <div *ngIf="name_control.invalid && name_control.touched">This field is required.</div>
+        <input type="text" id="author" formControlName="author">
+        <div *ngIf="author.invalid && author.touched">This field is required.</div>
       </td>
     </tr>
     <tr>
       <td>
-        <label for="comment">Comment:</label>
+        <label for="email">Email:</label>
       </td>
       <td>
-        <textarea id="comment" formControlName="comment"></textarea>
-        <div *ngIf="comment_control.invalid && comment_control.touched">This field is required.</div>
+        <input type="text" id="email" formControlName="email">
+        <div *ngIf="email.invalid && email.touched">This field is required.</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="body">Comment:</label>
+      </td>
+      <td>
+        <textarea id="body" formControlName="body"></textarea>
+        <div *ngIf="body.invalid && body.touched">This field is required.</div>
       </td>
     </tr>
     </tbody>
