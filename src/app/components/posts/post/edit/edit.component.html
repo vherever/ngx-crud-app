@@ -1,8 +1,8 @@
 <div class="overlay" *ngIf="popup" [style.width]="overlayWidth" [style.height]="overlayHeight"></div>
 <div class="popup" *ngIf="popup" [style.left]="styleLeft" [style.top]="styleTop">
-  <h5>Edit</h5>
+  <h5>Edit</h5>ng generate
   <app-add-post [current_post]="post" (notifyClose)="onNotifyClose($event)"></app-add-post>
-  <span style="color: red" (click)="onCancelClick()">(x)</span>
+  <button (click)="onCancelClick()">Close</button>
 </div>
 <style>
   .overlay {

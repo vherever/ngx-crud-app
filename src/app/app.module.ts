@@ -16,6 +16,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import {PopupService} from './services/popup.service';
 import { EditPostComponent } from './components/posts/post/edit/edit.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { FilterComponent } from './components/filter/filter.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { EditPostComponent } from './components/posts/post/edit/edit.component';
     PostComponent,
     AddPostComponent,
     AddCommentComponent,
-    EditPostComponent
+    EditPostComponent,
+    FilterPipe,
+    FilterComponent
   ],
   imports: [
     BrowserModule,

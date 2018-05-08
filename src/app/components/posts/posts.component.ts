@@ -17,6 +17,8 @@ export class PostsComponent implements OnInit {
   // Here we put only comments by postId
   public comments: Comment[];
 
+  public filterText: string;
+
   constructor(
     private dmService: DataManagerService,
     private dmCommentsService: DataManagerCommentsService,
@@ -36,6 +38,10 @@ export class PostsComponent implements OnInit {
   public onEditClick(post: Post): void {
     const popup = new EditPostPopup(post);
     this.popupService.showPopup(popup);
+  }
+
+  onNotifyFilter(message: string): void {
+    this.filterText = message;
   }
 
   ngOnInit() {
