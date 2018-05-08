@@ -17,6 +17,14 @@ export class CommentsComponent implements OnInit {
     this.comments = this.dmCommentsService.findCommentsByPostId(postId);
   }
 
+  public onRemoveComment(comment: Comment): void {
+    this.dmCommentsService.deleteComment(comment.id);
+    this.dmCommentsService.comments
+      .subscribe(() => {
+        this.onNotifyCommentsUpdate(this.postId);
+      });
+  }
+
   ngOnInit() { }
 
 }
