@@ -13,7 +13,10 @@
     <span *ngIf="post._collapsed"
           (click)="onEditClick(post)"
           style="cursor: pointer">(e)</span>
-    <app-post *ngIf="post._collapsed" [comments]="comments"></app-post>
+
+    <ng-container *ngIf="post._collapsed">
+      <app-comments [comments]="comments"></app-comments>
+    </ng-container>
   </li>
 </ul>
 <app-add-post></app-add-post>

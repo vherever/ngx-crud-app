@@ -4,7 +4,7 @@ import {DataManagerService} from '../../services/posts/data-manager.service';
 import {DataManagerCommentsService} from '../../services/comments/data-manager.service';
 import {Comment} from '../../models/comment';
 import {PopupService} from '../../services/popup.service';
-import {EditPostPopup} from './post/edit/edit.component';
+import {EditPostPopup} from './edit-post/edit.component';
 
 @Component({
   selector: 'app-posts',

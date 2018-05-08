@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {BasePopup, PopupService} from '../../../../services/popup.service';
-import {Post} from '../../../../models/post';
+import {BasePopup, PopupService} from '../../../services/popup.service';
+import {Post} from '../../../models/post';
 
 export class EditPostPopup extends BasePopup {
   data: any;
