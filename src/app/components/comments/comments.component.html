@@ -6,18 +6,21 @@
       <small class="form-text text-muted">Filter comments by title, email, comment, date.</small>
     </div>
     <div class="badge badge-warning" style="width: 100%; color: #ffffff; font-weight: lighter; font-size: 14px;"
-         *ngIf="!comments.length">There are no comments. Try to add some new</div>
+         *ngIf="!comments.length">There are no comments. Try to add some new.</div>
   </div>
 </div>
 <div class="row" *ngIf="comments.length">
   <div class="col-lg-12">
     <div *ngFor="let comment of comments | filter: {author: filterService.filterTextComment, email: filterService.filterTextComment, body: filterService.filterTextComment, date: filterService.filterTextComment}"
-         class="p-3 mb-2 bg-light text-dark">
-      <p>{{ comment.body }}</p>
+         class="p-3 mb-2 bg-light text-dark" [ngStyle]="{'border-left': '5px solid' + color }">
+      <p>— {{ comment.body }}</p>
       <small style="float: right; text-align: right"><i>{{ comment.date }}</i><br>by <b>{{ comment.author }}</b> <a href="{{ comment.email }}">({{ comment.email }})</a></small>
-      <br><br>
-      <button class="btn btn-sm btn-outline-secondary" (click)="onEditClick(comment)">Edit</button>
-      <button class="btn btn-danger btn-sm float-right" (click)="onCommentRemove(comment)">Remove</button>
+      <div style="clear: both"></div>
+      <div style="margin-top: 20px">
+        <button class="btn btn-sm btn-outline-secondary" (click)="onEditClick(comment)">Edit</button>
+        <button class="btn btn-danger btn-sm float-right" (click)="onCommentRemove(comment)">Remove</button>
+      </div>
+
     </div>
   </div>
 </div>

@@ -4,6 +4,7 @@ import {DataManagerCommentsService} from '../../services/comments/data-manager.s
 import {PopupService} from '../../services/popup.service';
 import {EditCommentPopup} from './edit-comment/edit.component';
 import {FilterService} from '../../services/filter.service';
+import {HelperService} from '../../services/helper.service';
 
 @Component({
   selector: 'app-comments',
@@ -14,10 +15,13 @@ export class CommentsComponent implements OnInit {
   @Input() comments: Comment[];
   @Input() postId: number;
 
+  public color: string;
+
   constructor(
     private dmCommentsService: DataManagerCommentsService,
     private popupService: PopupService,
-    public filterService: FilterService
+    public filterService: FilterService,
+    public helperService: HelperService
   ) { }
 
   public onNotifyCommentsUpdate(postId: number): void {
@@ -34,6 +38,8 @@ export class CommentsComponent implements OnInit {
     this.popupService.showPopup(popup);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.color = this.helperService.getRandomColor();
+  }
 
 }

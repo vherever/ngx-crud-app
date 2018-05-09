@@ -6,6 +6,7 @@ import {Comment} from '../../models/comment';
 import {PopupService} from '../../services/popup.service';
 import {EditPostPopup} from './edit-post/edit.component';
 import {FilterService} from '../../services/filter.service';
+import {HelperService} from '../../services/helper.service';
 
 @Component({
   selector: 'app-posts',
@@ -26,7 +27,8 @@ export class PostsComponent implements OnInit {
     private dmService: DataManagerService,
     private dmCommentsService: DataManagerCommentsService,
     private popupService: PopupService,
-    public filterService: FilterService
+    public filterService: FilterService,
+    public helperService: HelperService
   ) { }
 
   public onPostClick(post: Post): void {

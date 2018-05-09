@@ -29,7 +29,7 @@ export class AddCommentComponent implements OnInit, OnDestroy {
   public addCommentClick(): void {
     if (this.commentGroup.valid) {
       this.comment = this.commentGroup.value;
-      Object.assign(this.comment, {postId: this.postId});
+      Object.assign(this.comment, {postId: this.postId, date: this.helperService.getCurrentDate()});
       this.dmService.addComment(this.comment);
 
       // Clear the form

@@ -24,6 +24,7 @@ export class AddPostComponent implements OnInit {
   public addPostClick(): void {
     if (this.postGroup.valid) {
       this.post = this.postGroup.value;
+      Object.assign(this.post, {date: this.helperService.getCurrentDate()});
       this.dmService.addPost(this.post);
       this.dmService.posts.subscribe();
 
