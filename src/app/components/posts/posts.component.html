@@ -10,13 +10,14 @@
         <p class="card-text">{{ post.title }}</p>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
-            <button (click)="onPostClick(post)" type="button" class="btn btn-sm btn-outline-secondary">{{ post._collapsed ? 'Hide' : 'View' }}</button>
+            <button (click)="onPostClick(post)" *ngIf="!post._collapsed" type="button" class="btn btn-sm btn-outline-secondary">View</button>
+            <button (click)="onPostClickHide(post)" *ngIf="post._collapsed" type="button" class="btn btn-sm btn-outline-secondary">Hide</button>
             <button (click)="onEditClick(post)" type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
           </div>
           <small class="text-muted">by <b>{{ post.author }}</b></small>
         </div>
 
-        <ng-container *ngIf="post._collapsed">
+        <ng-container *ngIf="post._collapsed && _collapsed">
           <br>
           <div class="dropdown-divider"></div>
           <p class="lead">{{ post.body }}</p>

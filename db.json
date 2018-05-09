@@ -15,9 +15,10 @@
       "id": 3
     },
     {
-      "author": "v",
-      "title": "b",
-      "body": "n",
+      "author": "va",
+      "title": "ba",
+      "body": "na",
+      "_collapsed": true,
       "id": 4
     },
     {
@@ -49,9 +50,9 @@
       "postId": 4
     },
     {
-      "author": "aaa",
-      "email": "s",
-      "body": "f",
+      "author": "aaa1",
+      "email": "s1@a.com",
+      "body": "f1",
       "id": 3,
       "postId": 3
     },
@@ -71,7 +72,7 @@
     },
     {
       "author": "ddd",
-      "email": "ddd",
+      "email": "ddd@a.com",
       "body": "ddd",
       "id": 8,
       "postId": 6
@@ -82,6 +83,27 @@
       "body": "aa",
       "postId": 6,
       "id": 9
+    },
+    {
+      "author": "a",
+      "email": "d@a",
+      "body": "g",
+      "postId": 7,
+      "id": 10
+    },
+    {
+      "author": "f",
+      "email": "a@d",
+      "body": "g",
+      "postId": 7,
+      "id": 11
+    },
+    {
+      "author": "f",
+      "email": "a2@a.com",
+      "body": "d",
+      "postId": 4,
+      "id": 12
     }
   ]
 }

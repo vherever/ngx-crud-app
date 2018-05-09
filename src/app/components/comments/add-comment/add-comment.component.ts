@@ -17,6 +17,7 @@ export class AddCommentComponent implements OnInit, OnDestroy {
 
   public commentGroup: FormGroup;
   public model: Comment;
+  public emailPattern: string;
 
   private comment: any;
   private subscription: ISubscription;
@@ -28,7 +29,6 @@ export class AddCommentComponent implements OnInit, OnDestroy {
       this.comment = this.commentGroup.value;
       Object.assign(this.comment, {postId: this.postId});
       this.dmService.addComment(this.comment);
-
 
       // Clear the form
       this.formGroupControlsInit();
@@ -42,7 +42,7 @@ export class AddCommentComponent implements OnInit, OnDestroy {
   private formGroupControlsInit() {
     this.commentGroup = new FormGroup({
       author: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
       body: new FormControl('', Validators.required)
     });
   }
@@ -58,7 +58,7 @@ export class AddCommentComponent implements OnInit, OnDestroy {
       this.notifyCommentsUpdate.emit(parseInt(this.postId, 10));
     });
     this.formGroupControlsInit();
-
+    this.emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
     this.model = {
       author: this.current_comment ? this.current_comment.author : '',
       email: this.current_comment ? this.current_comment.email : '',

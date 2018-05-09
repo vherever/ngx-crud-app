@@ -10,7 +10,7 @@
     <div *ngFor="let comment of comments"
          class="p-3 mb-2 bg-light text-dark">
       <p>{{ comment.body }}</p>
-      <span class="float-right">by <b>{{ comment.author }}</b> ({{ comment.email }})</span>
+      <span class="float-right">by <b>{{ comment.author }}</b> <a href="{{ comment.email }}">({{ comment.email }})</a></span>
       <br><br>
       <button class="btn btn-sm btn-outline-secondary" (click)="onEditClick(comment)">Edit</button>
       <button class="btn btn-danger btn-sm float-right" (click)="onCommentRemove(comment)">Remove</button>

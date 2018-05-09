@@ -3,7 +3,7 @@
   <h1>Angular Blog App</h1>
   <br>
   <app-filter (notifyFilter)="filterService.onNotifyFilter($event)"></app-filter>
-  <app-posts [posts]="posts"></app-posts>
+  <app-posts [posts]="posts" (notifyPosts)="onPostsNotify($event)"></app-posts>
   <app-edit-post></app-edit-post>
   <app-edit-comment></app-edit-comment>
 </div>

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Post} from '../../models/post';
 import {DataManagerService} from '../../services/posts/data-manager.service';
 import {DataManagerCommentsService} from '../../services/comments/data-manager.service';
@@ -14,9 +14,13 @@ import {FilterService} from '../../services/filter.service';
 })
 export class PostsComponent implements OnInit {
   @Input() posts: Post[];
+  @Output() notifyPosts: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   // Here we put only comments by postId
   public comments: Comment[];
+
+  // Save here temporary state
+  public _collapsed: boolean;
 
   constructor(
     private dmService: DataManagerService,
@@ -26,8 +30,15 @@ export class PostsComponent implements OnInit {
   ) { }
 
   public onPostClick(post: Post): void {
+    this._collapsed = true;
+    this.notifyPosts.emit(true);
     post._collapsed = !post._collapsed;
     this.comments = this.dmCommentsService.findCommentsByPostId(post.id);
+  }
+
+  public onPostClickHide(post: Post): void {
+    this._collapsed = false;
+    post._collapsed = !post._collapsed;
   }
 
   public onPostRemove(post: Post): void {
