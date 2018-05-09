@@ -1,7 +1,6 @@
 <h2>Posts</h2>
-<app-filter (notifyFilter)="onNotifyFilter($event)"></app-filter>
 <ul *ngIf="posts.length">
-  <li *ngFor="let post of posts | filter:{ title: filterText }">
+  <li *ngFor="let post of posts | filter:{ title: filterService.filterText }">
       <span (click)="onPostClick(post)" style="cursor: pointer">
         {{ post.title }}
         <span *ngIf="!post._collapsed">(+)</span>

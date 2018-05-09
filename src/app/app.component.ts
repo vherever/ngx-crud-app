@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {DataManagerService} from './services/posts/data-manager.service';
 import {Post} from './models/post';
 import {DataManagerCommentsService} from './services/comments/data-manager.service';
+import {FilterService} from './services/filter.service';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +10,14 @@ import {DataManagerCommentsService} from './services/comments/data-manager.servi
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private dmService: DataManagerService, private dmCommentsService: DataManagerCommentsService) {}
+  constructor(
+    private dmService: DataManagerService,
+    private dmCommentsService: DataManagerCommentsService,
+    public filterService: FilterService
+  ) {}
 
   public posts: Post[];
+  public comments: any;
 
   ngOnInit() {
     this.dmService.loadPosts();
@@ -23,6 +29,7 @@ export class AppComponent implements OnInit {
     this.dmCommentsService.loadComments();
     this.dmCommentsService.comments.subscribe((items) => {
       this.dmCommentsService.comments_ = items;
+      this.comments = items;
     });
   }
 }

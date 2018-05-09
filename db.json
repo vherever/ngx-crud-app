@@ -1,47 +1,20 @@
 {
   "posts": [
     {
-      "author": "a",
-      "title": "a",
-      "body": "a",
-      "id": 1
-    },
-    {
-      "author": "bb",
-      "title": "bb",
-      "body": "bb",
+      "author": "1",
+      "title": "1",
+      "body": "1",
       "_collapsed": true,
-      "id": 2
+      "id": 1
     }
   ],
   "comments": [
     {
-      "author": "s",
-      "email": "d",
-      "body": "f",
-      "postId": 1,
-      "id": 1
-    },
-    {
-      "author": "g",
-      "email": "h",
-      "body": "j",
-      "postId": 1,
-      "id": 2
-    },
-    {
-      "author": "zz",
-      "email": "x",
-      "body": "c",
-      "id": 3,
-      "postId": 2
-    },
-    {
-      "author": "vv",
-      "email": "c",
-      "body": "x",
-      "id": 4,
-      "postId": 2
+      "author": "sdss1",
+      "email": "ddd@aa.com1",
+      "body": "ff1",
+      "id": 1,
+      "postId": 1
     }
   ]
 }

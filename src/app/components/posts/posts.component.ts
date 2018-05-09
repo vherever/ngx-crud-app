@@ -5,6 +5,7 @@ import {DataManagerCommentsService} from '../../services/comments/data-manager.s
 import {Comment} from '../../models/comment';
 import {PopupService} from '../../services/popup.service';
 import {EditPostPopup} from './edit-post/edit.component';
+import {FilterService} from '../../services/filter.service';
 
 @Component({
   selector: 'app-posts',
@@ -17,12 +18,12 @@ export class PostsComponent implements OnInit {
   // Here we put only comments by postId
   public comments: Comment[];
 
-  public filterText: string;
-
   constructor(
     private dmService: DataManagerService,
     private dmCommentsService: DataManagerCommentsService,
-    private popupService: PopupService) { }
+    private popupService: PopupService,
+    public filterService: FilterService
+  ) { }
 
   public onPostClick(post: Post): void {
     post._collapsed = !post._collapsed;
@@ -36,10 +37,6 @@ export class PostsComponent implements OnInit {
   public onEditClick(post: Post): void {
     const popup = new EditPostPopup(post);
     this.popupService.showPopup(popup);
-  }
-
-  onNotifyFilter(message: string): void {
-    this.filterText = message;
   }
 
   ngOnInit() {
