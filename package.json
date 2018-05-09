@@ -1,7 +1,8 @@
 {
-  "name": "angular-developex",
+  "name": "angular-blog-app",
   "version": "0.0.0",
   "license": "MIT",
+  "author": "vherever",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
