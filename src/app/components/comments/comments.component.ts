@@ -3,6 +3,7 @@ import {Comment} from '../../models/comment';
 import {DataManagerCommentsService} from '../../services/comments/data-manager.service';
 import {PopupService} from '../../services/popup.service';
 import {EditCommentPopup} from './edit-comment/edit.component';
+import {FilterService} from '../../services/filter.service';
 
 @Component({
   selector: 'app-comments',
@@ -15,7 +16,8 @@ export class CommentsComponent implements OnInit {
 
   constructor(
     private dmCommentsService: DataManagerCommentsService,
-    private popupService: PopupService
+    private popupService: PopupService,
+    public filterService: FilterService
   ) { }
 
   public onNotifyCommentsUpdate(postId: number): void {

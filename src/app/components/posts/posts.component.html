@@ -4,7 +4,7 @@
   </div>
 </div>
 <div class="row" *ngIf="posts.length">
-  <div class="col-md-4" *ngFor="let post of posts | filter:{ title: filterService.filterText }">
+  <div class="col-md-4" *ngFor="let post of posts | filter:{ author: filterService.filterText, title: filterService.filterText, body: filterService.filterText }">
     <div class="card mb-4 box-shadow">
       <div class="card-body">
         <p class="card-text">{{ post.title }}</p>
