@@ -18,6 +18,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { FilterComponent } from './components/filter/filter.component';
 import {EditCommentComponent} from './components/comments/edit-comment/edit.component';
 import {FilterService} from './services/filter.service';
+import {HelperService} from './services/helper.service';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import {FilterService} from './services/filter.service';
     DataManagerService,
     DataManagerCommentsService,
     PopupService,
-    FilterService
+    FilterService,
+    HelperService
   ],
   bootstrap: [AppComponent]
 })

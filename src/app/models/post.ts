@@ -4,6 +4,7 @@ export class Post {
     public title: string,
     public body: string,
     public image: string,
+    public date: string,
     public _collapsed: boolean,
     public id: number
   ) {
@@ -11,6 +12,7 @@ export class Post {
     this.title = title;
     this.body = body;
     this.image = image;
+    this.date = date;
     this._collapsed = _collapsed;
     this.id = id;
   }

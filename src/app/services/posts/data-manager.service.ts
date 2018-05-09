@@ -107,6 +107,7 @@ export class DataManagerService {
         item.title,
         item.body,
         item.image,
+        item.date,
         false,
         item.id
       );
@@ -121,6 +122,7 @@ export class DataManagerService {
         data.title,
         data.body,
         data.image,
+        data.date,
         false,
         data.id
       )

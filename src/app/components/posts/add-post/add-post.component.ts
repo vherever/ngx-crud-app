@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Post} from '../../../models/post';
 import {DataManagerService} from '../../../services/posts/data-manager.service';
+import {HelperService} from '../../../services/helper.service';
 
 @Component({
   selector: 'app-add-post',
@@ -17,7 +18,8 @@ export class AddPostComponent implements OnInit {
   public postGroup: FormGroup;
   public model: Post;
 
-  constructor(private dmService: DataManagerService) {}
+  constructor(private dmService: DataManagerService,
+              private helperService: HelperService) {}
 
   public addPostClick(): void {
     if (this.postGroup.valid) {
@@ -50,6 +52,7 @@ export class AddPostComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.helperService.getCurrentDate();
     this.formGroupControlsInit();
 
     this.model = {
@@ -57,6 +60,7 @@ export class AddPostComponent implements OnInit {
       title: this.current_post ? this.current_post.title : '',
       body: this.current_post ? this.current_post.body : '',
       image: this.current_post ? this.current_post.image : '',
+      date: this.current_post ? this.helperService.getCurrentDate() : '',
       _collapsed: this.current_post ? this.current_post._collapsed : false,
       id: this.current_post ? this.current_post.id : undefined
     };

@@ -105,6 +105,7 @@ export class DataManagerCommentsService {
         item.author,
         item.email,
         item.body,
+        item.date,
         item.id,
         item.postId
       );
@@ -118,6 +119,7 @@ export class DataManagerCommentsService {
         item.author,
         item.email,
         item.body,
+        item.date,
         item.id,
         item.postId
       )

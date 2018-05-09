@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {DataManagerCommentsService} from '../../../services/comments/data-manager.service';
 import {Comment} from '../../../models/comment';
 import {ISubscription} from 'rxjs/Subscription';
+import {HelperService} from '../../../services/helper.service';
 
 @Component({
   selector: 'app-add-comment',
@@ -22,7 +23,8 @@ export class AddCommentComponent implements OnInit, OnDestroy {
   private comment: any;
   private subscription: ISubscription;
 
-  constructor(private dmService: DataManagerCommentsService) { }
+  constructor(private dmService: DataManagerCommentsService,
+              private helperService: HelperService) { }
 
   public addCommentClick(): void {
     if (this.commentGroup.valid) {
@@ -63,6 +65,7 @@ export class AddCommentComponent implements OnInit, OnDestroy {
       author: this.current_comment ? this.current_comment.author : '',
       email: this.current_comment ? this.current_comment.email : '',
       body: this.current_comment ? this.current_comment.body : '',
+      date: this.current_comment ? this.helperService.getCurrentDate() : '',
       id: this.current_comment ? this.current_comment.id : undefined,
       postId: this.current_comment ? this.current_comment.postId : undefined
     };
