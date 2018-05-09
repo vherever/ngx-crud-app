@@ -8,7 +8,6 @@ import 'rxjs/add/operator/debounceTime';
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent implements OnInit {
-  public enableFilter: boolean;
   public filterPlaceholder: string;
   public filterInput = new FormControl();
 
@@ -17,8 +16,7 @@ export class FilterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.enableFilter = true;
-    this.filterPlaceholder = 'Filter..';
+    this.filterPlaceholder = 'Filter...';
 
     this.filterInput
       .valueChanges

@@ -33,12 +33,14 @@ export class AddPostComponent implements OnInit {
   get author() { return this.postGroup.get('author'); }
   get title() { return this.postGroup.get('title'); }
   get body() { return this.postGroup.get('body'); }
+  get image() { return this.postGroup.get('image'); }
 
   private formGroupControlsInit() {
     this.postGroup = new FormGroup({
       author: new FormControl('', Validators.required),
       title: new FormControl('', Validators.required),
-      body: new FormControl('', Validators.required)
+      body: new FormControl('', Validators.required),
+      image: new FormControl('')
     });
   }
 
@@ -54,6 +56,7 @@ export class AddPostComponent implements OnInit {
       author: this.current_post ? this.current_post.author : '',
       title: this.current_post ? this.current_post.title : '',
       body: this.current_post ? this.current_post.body : '',
+      image: this.current_post ? this.current_post.image : '',
       _collapsed: this.current_post ? this.current_post._collapsed : false,
       id: this.current_post ? this.current_post.id : undefined
     };

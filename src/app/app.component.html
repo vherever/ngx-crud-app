@@ -2,7 +2,10 @@
 <div class="container">
   <h1>Angular Blog App</h1>
   <br>
-  <app-filter (notifyFilter)="filterService.onNotifyFilter($event)"></app-filter>
+  <div class="form-group">
+    <app-filter (notifyFilter)="filterService.onNotifyFilter($event)"></app-filter>
+    <small class="form-text text-muted">Filter posts by author, title, post.</small>
+  </div>
   <app-posts [posts]="posts" (notifyPosts)="onPostsNotify($event)"></app-posts>
   <app-edit-post></app-edit-post>
   <app-edit-comment></app-edit-comment>

@@ -16,6 +16,10 @@
         <textarea id="description" class="form-control" formControlName="body" [(ngModel)]="model.body"></textarea>
         <div *ngIf="body.invalid && body.touched" class="badge badge-danger">This field is required.</div>
       </div>
+      <div class="form-group">
+        <label for="image">Image url:</label>
+        <input type="text" class="form-control" id="image" formControlName="image" [(ngModel)]="model.image">
+      </div>
 
       <button class="btn btn-primary float-right"
               *ngIf="!current_post"

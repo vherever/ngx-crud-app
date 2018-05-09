@@ -6,6 +6,7 @@
 <div class="row" *ngIf="posts.length">
   <div class="col-md-4" *ngFor="let post of posts | filter:{ author: filterService.filterText, title: filterService.filterText, body: filterService.filterText }">
     <div class="card mb-4 box-shadow">
+      <img *ngIf="post.image" class="card-img-top" src="{{ post.image }}">
       <div class="card-body">
         <p class="card-text">{{ post.title }}</p>
         <div class="d-flex justify-content-between align-items-center">

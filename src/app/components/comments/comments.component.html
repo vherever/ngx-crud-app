@@ -1,7 +1,10 @@
 <div class="row">
   <div class="col-lg-12">
-    <h3>Comments</h3>
-    <app-filter (notifyFilter)="filterService.onNotifyFilterComment($event)"></app-filter>
+    <h6>Comments</h6>
+    <div class="form-group">
+      <app-filter (notifyFilter)="filterService.onNotifyFilterComment($event)"></app-filter>
+      <small class="form-text text-muted">Filter comments by title, email, comment.</small>
+    </div>
     <div class="badge badge-warning" style="width: 100%; color: #ffffff; font-weight: lighter; font-size: 14px;"
          *ngIf="!comments.length">There are no comments. Try to add some new</div>
   </div>
@@ -23,7 +26,7 @@
     <br>
     <div class="dropdown-divider"></div>
     <br>
-    <h3>Add Comment</h3>
+    <h5>Add Comment</h5>
     <app-add-comment [postId]="postId" (notifyCommentsUpdate)="onNotifyCommentsUpdate($event)"></app-add-comment>
   </div>
 </div>
