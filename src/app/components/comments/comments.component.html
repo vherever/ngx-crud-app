@@ -1,10 +1,28 @@
-<h4>Comments</h4>
-<ul *ngIf="comments.length">
-  <li *ngFor="let comment of comments">
-    <span>{{ comment.author }}</span> <span>{{ comment.email }}</span><br>
-    <span>{{ comment.body }}</span>
-    <span style="color: red" (click)="onCommentRemove(comment)">(x)</span>
-    <span (click)="onEditClick(comment)">(e)</span>
-  </li>
-</ul>
-<app-add-comment [postId]="postId" (notifyCommentsUpdate)="onNotifyCommentsUpdate($event)"></app-add-comment>
+<div class="row">
+  <div class="col-lg-12">
+    <h3>Comments</h3>
+    <div class="badge badge-warning" style="width: 100%; color: #ffffff; font-weight: lighter; font-size: 14px;"
+         *ngIf="!comments.length">There are no comments. Try to add some new</div>
+  </div>
+</div>
+<div class="row" *ngIf="comments.length">
+  <div class="col-lg-12">
+    <div *ngFor="let comment of comments"
+         class="p-3 mb-2 bg-light text-dark">
+      <p>{{ comment.body }}</p>
+      <span class="float-right">by <b>{{ comment.author }}</b> ({{ comment.email }})</span>
+      <br><br>
+      <button class="btn btn-sm btn-outline-secondary" (click)="onEditClick(comment)">Edit</button>
+      <button class="btn btn-danger btn-sm float-right" (click)="onCommentRemove(comment)">Remove</button>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <br>
+    <div class="dropdown-divider"></div>
+    <br>
+    <h3>Add Comment</h3>
+    <app-add-comment [postId]="postId" (notifyCommentsUpdate)="onNotifyCommentsUpdate($event)"></app-add-comment>
+  </div>
+</div>

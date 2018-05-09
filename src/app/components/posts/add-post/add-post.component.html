@@ -1,41 +1,34 @@
-<form [formGroup]="postGroup">
-<table width="400px">
-  <tbody>
-  <tr>
-    <td width="30%">
-      <label for="author">Author:</label>
-    </td>
-    <td width="70%">
-      <input type="text" id="author" formControlName="author" [(ngModel)]="model.author">
-      <div *ngIf="author.invalid && author.touched">This field is required.</div>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <label for="title">Title:</label>
-    </td>
-    <td>
-      <input type="text" id="title" formControlName="title" [(ngModel)]="model.title">
-      <div *ngIf="title.invalid && title.touched">This field is required.</div>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <label for="description">Content:</label>
-    </td>
-    <td>
-      <textarea id="description" formControlName="body" [(ngModel)]="model.body"></textarea>
-      <div *ngIf="body.invalid && body.touched">This field is required.</div>
-    </td>
-  </tr>
-  </tbody>
-</table>
-<br>
-<button *ngIf="!current_post"
-        (click)="addPostClick()"
-        [disabled] = "!postGroup.valid">Add post</button>
+<div class="row">
+  <div class="col-lg-12">
+    <form [formGroup]="postGroup">
+      <div class="form-group">
+        <label for="author">Author:</label>
+        <input type="text" class="form-control" id="author" formControlName="author" [(ngModel)]="model.author">
+        <div *ngIf="author.invalid && author.touched" class="badge badge-danger">This field is required.</div>
+      </div>
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" class="form-control" id="title" formControlName="title" [(ngModel)]="model.title">
+        <div *ngIf="title.invalid && title.touched" class="badge badge-danger">This field is required.</div>
+      </div>
+      <div class="form-group">
+        <label for="description">Content:</label>
+        <textarea id="description" class="form-control" formControlName="body" [(ngModel)]="model.body"></textarea>
+        <div *ngIf="body.invalid && body.touched" class="badge badge-danger">This field is required.</div>
+      </div>
 
-<button *ngIf="current_post"
-        [disabled] = "!postGroup.valid"
-        (click)="onUpdatePost(model)">Update post</button>
-</form>
+      <button class="btn btn-primary float-right"
+              *ngIf="!current_post"
+              (click)="addPostClick()"
+              [disabled]="!postGroup.valid">
+        Add post
+      </button>
+
+      <button class="btn btn-primary float-right" *ngIf="current_post"
+              [disabled]="!postGroup.valid"
+              (click)="onUpdatePost(model)">
+        Update post
+      </button>
+    </form>
+  </div>
+</div>
